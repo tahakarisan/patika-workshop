@@ -6,11 +6,14 @@ import musicData from "../../music-data.json";
 import Music from "./music"
 function App(){
     const [searchText,setSearchText] = useState("");
-    
-    useEffect(()=>{
-        console.log(searchText)
+    const [filteredMusicData,setMusicData] = useState(musicData);
+
+    useEffect(()=>{ 
+        setMusicData(musicData.filter(item=> item.artist.toLowerCase().includes(searchText.toLowerCase())))
     }
     ,[searchText])
+
+
     const renderItem = ({item}:any) => (
         <Music {...item} />
     );
@@ -27,9 +30,10 @@ function App(){
                     value={searchText}
                 />
                 <FlatList
-                 data={musicData}
+                 data={filteredMusicData}
                  renderItem={renderItem}
                  keyExtractor={(item) => item.id.toString()}
+                 contentContainerStyle={{ paddingBottom: 100 }}
                 />
             </View>
         

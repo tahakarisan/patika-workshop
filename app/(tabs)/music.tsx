@@ -1,10 +1,10 @@
 import React from "react";
-import { View,Image,Text,Button, Dimensions} from "react-native";
+import { View,Image,Text,Button, Dimensions,SafeAreaView} from "react-native";
 import { StyleSheet } from "react-native";
 
 function Music(musics:any){
     return(
-        <View style={styles.container}>
+            <View style={styles.container}>
             <Image style={styles.image} source={{ uri: musics.imageUrl }}/>
             <View style={styles.content}>
             <Text style={styles.textTitle}>{musics.title}</Text>
@@ -12,7 +12,8 @@ function Music(musics:any){
                 <Text style={styles.album}>{musics.album} {musics.year}</Text>
                 {musics.isSoldOut && <Text style={styles.soldOutText}>Stok Dışı</Text>}
             </View>
-        </View>
+            </View>
+        
     )
 }
 const styles = StyleSheet.create({
@@ -36,11 +37,11 @@ const styles = StyleSheet.create({
     },
     textTitle: {
         alignSelf:"flex-start",
-        textAlign:"center",
+        textAlign:"left",
         fontSize: 18,
         fontWeight: "bold",
         marginVertical: 5,
-        maxWidth:400
+        maxWidth:240
     },
     artist: {
         fontSize: 14,
