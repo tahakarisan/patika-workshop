@@ -4,10 +4,21 @@ const styles = StyleSheet.create({
     them:{
         backgroundColor:"#3c3c3c"
     },
-    input:{
-        backgroundColor:"#535b5e",
+    headerInput:{
+        backgroundColor:"#102027",
         borderWidth:1,
         borderRadius:12,
+        borderColor:"orange",
+        width:"30%",
+        marginRight:20,
+        marginBottom:10,
+        color:"white"
+    },
+    input:{
+        backgroundColor:"#102027",
+        borderWidth:1,
+        borderRadius:12,
+        borderColor:"orange",
         width:"90%",
         marginLeft:20,
         marginBottom:10,

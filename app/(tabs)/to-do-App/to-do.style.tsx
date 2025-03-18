@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
     },
     headElements:{
         flexDirection:"row",
+        justifyContent: "space-between",
     },
     todoDesc:{
         fontSize: 18,

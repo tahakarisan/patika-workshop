@@ -11,7 +11,10 @@ const AddButton = ({title,onPress}:{title:string,onPress:()=>void}) => {
 }
 const styles = StyleSheet.create({
     button: {
-        marginLeft: 160,
+        width: "20%",
+        marginTop: 10,
+        marginBottom: 10,
+        marginLeft: 295,
         backgroundColor: "orange",
         padding: 12,
         borderRadius: 8,

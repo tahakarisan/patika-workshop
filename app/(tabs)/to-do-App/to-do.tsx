@@ -10,7 +10,7 @@ const ToDo = ({ todo,onCompleted}: { todo: any,onCompleted:()=>void}) => {
             <View style={styles.todoElements}>
                 {todo.status ? <Text style={styles.todoHeadCompleted}>{todo.title}</Text> : <Text style={styles.todoHead}>{todo.title}</Text>}
                 <DeleteButton
-                title="Sil"
+                title="Yap"
                 onPress={onCompleted}/>
             </View>
              <Text style={styles.todoDesc}>{todo.description}</Text>
