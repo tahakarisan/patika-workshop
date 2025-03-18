@@ -1,42 +1,33 @@
-import React, { useEffect, useState } from "react";
-import { View,Text,TextInput,FlatList} from "react-native";
-import styles from "./indexStyle";
-import { SafeAreaView } from "react-native-safe-area-context";
-import musicData from "../../music-data.json";
-import Music from "./music"
+import React, { useState } from "react";
+import { FlatList, View,Text,Button} from "react-native";
+import ToDo from "./to-do-App/to-do";
+import styles from "./to-do-App/to-do.style";
+import data from "./to-do-App/to-do-data.json";
+import AddButton from "./to-do-App/AddButton";
 function App(){
-    const [searchText,setSearchText] = useState("");
-    const [filteredMusicData,setMusicData] = useState(musicData);
-
-    useEffect(()=>{ 
-        setMusicData(musicData.filter(item=> item.artist.toLowerCase().includes(searchText.toLowerCase())))
-    }
-    ,[searchText])
-
-
-    const renderItem = ({item}:any) => (
-        <Music {...item} />
-    );
-      
-
-    return(
-            <View style={styles.them}>
-                <TextInput
-                    inputMode="search"
-                    style={styles.input}
-                    placeholder="   ...  Search"
-                    placeholderTextColor={"white"}
-                    onChangeText={setSearchText}
-                    value={searchText}
-                />
-                <FlatList
-                 data={filteredMusicData}
-                 renderItem={renderItem}
-                 keyExtractor={(item) => item.id.toString()}
-                 contentContainerStyle={{ paddingBottom: 100 }}
-                />
-            </View>
-        
+    const [datas, setDatas] = useState(data);
+    const toggleState = (id: number) => {
+        const updatedTodos = datas.map(todo => 
+            todo.id === id ? { ...todo, status: !todo.status } : todo
+        );
+        setDatas(updatedTodos)
+        console.log(datas);
+    };
+    return (
+        <View style={styles.container}>
+           <View style={styles.headElements}>
+                <Text style={styles.header}>To Do App</Text>
+                <AddButton
+                title="Ekle"
+                onPress={()=>{console.log("Basıldı")}}/>
+           </View>
+           <FlatList
+                data={datas}
+                renderItem={({ item }) => <ToDo onCompleted={()=>toggleState(item.id)
+                } todo={item} />}
+                keyExtractor={(item) => item.id.toString()}
+           /> 
+        </View>
     )
 }
 

@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import { View,Image,Text,Button, Dimensions,SafeAreaView} from "react-native";
 import { StyleSheet } from "react-native";
 
@@ -60,3 +60,5 @@ const styles = StyleSheet.create({
 });
 
 export default Music;
+
+*/
